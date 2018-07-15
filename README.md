@@ -27,7 +27,28 @@ $ openssl x509 -days 3650 -req -signkey server.key < server.csr > server.crt
 ## Django
 - 通常のアプリケーション作成
 
-## 初期化
+# 起動方法
+## nginx, Django, Postgresqlすべてコンテナで動かす場合
+```
+# docker-compose up -d
+```
+
+## 外部のPostgresqlに接続する場合
+- Postgresqlサーバでは事前にユーザとデータベースを作成しておく
+```
+# su - postgres
+-bash-4.2$ psql -c "CREATE ROLE django WITH LOGIN PASSWORD 'django';"
+CREATE ROLE
+-bash-4.2$ psql -c "CREATE DATABASE django OWNER django ENCODING 'utf8';"
+CREATE DATABASE
+-bash-4.2$ exit
+```
+- docker-command-without-postgres.ymlのdjangoコンテナの環境変数「DATABASE_HOST」にはPostgresqlサーバのアドレスを指定してから、以下のコマンドを実行する
+```
+# docker-compose -f docker-compose-without-postgres.yml up -d
+```
+
+# 初期化
 ```
 # docker exec nginx-gunicorn-django-postgres_django_1 ./init.sh
 ```
