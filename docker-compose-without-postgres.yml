@@ -1,0 +1,20 @@
+version: '3'
+services:
+  nginx:
+    image: nginx:1.12.2-alpine
+    ports:
+      - "443:443"
+    depends_on:
+      - django
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/certs:/etc/pki/nginx/certs
+      - ./src/static:/var/www/static
+  django:
+    build: ./django
+    env_file: ./django/.django_env
+    environment:
+      DATABASE_HOST: "192.168.33.105"
+    volumes:
+      - ./src:/usr/src/django
+    command: gunicorn app.wsgi -b 0.0.0.0:8080
