@@ -3,6 +3,7 @@ services:
   nginx:
     image: nginx:1.12.2-alpine
     ports:
+      - "80:80"
       - "443:443"
     depends_on:
       - django
