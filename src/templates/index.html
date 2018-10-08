@@ -10,8 +10,8 @@
     <body>
         <h1 id="title">Django test page</h1>
         <button type="button" id="click">Click here</button>
-        {% for row in rows %}
-        <p>{{row.access_time}}</p>
+        {% for access_time_str in access_time_str_list %}
+        <p>{{ access_time_str }}</p>
         {% endfor %}
         <div>
         <a id="save" href="{% url 'save' %}">Save</a>

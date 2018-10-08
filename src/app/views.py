@@ -5,8 +5,11 @@ from model.models import Table
 
 def index(request):
     rows = Table.objects.all()
+    access_time_str_list = []
+    for row in rows:
+        access_time_str_list.append(row.access_time.strftime('%Y/%m/%d %H:%M:%S'))
     context = {
-        'rows': rows
+        'access_time_str_list': access_time_str_list
     }
     return render(request, 'index.html', context)
 
