@@ -52,3 +52,8 @@ CREATE DATABASE
 ```
 # docker exec nginx-gunicorn-django-postgres_django_1 ./init.sh
 ```
+
+# テスト
+```
+# python3.6 manage.py test
+```
