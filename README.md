@@ -1,6 +1,11 @@
 # nginx-gunicorn-django-postgres
 
-# やったこと
+## Docker
+### イメージ作成
+```
+$ docker build -t tetsis/simple-django-app -f django/Dockerfile .
+```
+
 ## nginx
 ### 証明書
 - certsフォルダ内で以下のコマンドを実行

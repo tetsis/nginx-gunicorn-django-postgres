@@ -11,14 +11,14 @@ services:
       - ./nginx/certs:/etc/pki/nginx/certs
       - ./src/static:/var/www/static
   django:
-    build: ./django
+    build: 
+      context: ./
+      dockerfile: ./django/Dockerfile
     env_file: ./django/.django_env
     environment:
       DATABASE_HOST: postgres
     depends_on:
       - postgres
-    volumes:
-      - ./src:/usr/src/django
     command: gunicorn app.wsgi -b 0.0.0.0:8080
   postgres:
     build: ./postgres
