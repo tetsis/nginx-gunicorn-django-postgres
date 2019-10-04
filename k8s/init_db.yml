@@ -10,16 +10,16 @@ spec:
           image: tetsis/simple-django-database
           env:
             - name: PGPASSWORD
-              value: "k8s-database"
+              value: xxxx
             - name: DATABASE_USER
-              value: "postgres"
+              value: postgres
             - name: DATABASE_HOST
-              value: k8s-database.c9bjbfudcgmw.ap-northeast-1.rds.amazonaws.com
+              value: xxxx
             - name: NEW_DATABASE_USER
-              value: "djangoyy"
+              value: django
             - name: NEW_DATABASE_PASSWORD
-              value: "djangoyy"
+              value: django
             - name: NEW_DATABASE_NAME
-              value: "djangoyy"
+              value: django
           command: ["sh","init_db.sh"]
       restartPolicy: Never

@@ -21,21 +21,21 @@ spec:
               containerPort: 8080
           env:
             - name: DATABASE_PASSWORD
-              value: djangoyy
+              value: django
             - name: DATABASE_USER
-              value: djangoyy
+              value: django
             - name: DATABASE_NAME
-              value: djangoyy
+              value: django
             - name: DATABASE_HOST
-              value: k8s-database.c9bjbfudcgmw.ap-northeast-1.rds.amazonaws.com
+              value: xxxx
             - name: NOSQL_DATABASE_NAME
-              value: aaaa
+              value: django
             - name: NOSQL_DATABASE_USER
-              value: k8s-mongodb
+              value: django
             - name: NOSQL_DATABASE_PASSWORD
-              value: k8s-mongodb
+              value: django
             - name: NOSQL_DATABASE_HOST
-              value: k8s-mongodb-qig2j.mongodb.net/admin?retryWrites=true&w=majority
+              value: xxxx
         - name: proxy
           image: tetsis/simple-django-reverse-proxy
           ports:

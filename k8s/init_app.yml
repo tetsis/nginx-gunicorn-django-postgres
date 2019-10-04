@@ -10,12 +10,12 @@ spec:
           image: tetsis/simple-django-app
           env:
             - name: DATABASE_PASSWORD
-              value: "djangoyy"
+              value: django
             - name: DATABASE_USER
-              value: "djangoyy"
+              value: django
             - name: DATABASE_NAME
-              value: "djangoyy"
+              value: django
             - name: DATABASE_HOST
-              value: k8s-database.c9bjbfudcgmw.ap-northeast-1.rds.amazonaws.com
+              value: xxxx
           command: ["sh",  "init.sh"]
       restartPolicy: Never
