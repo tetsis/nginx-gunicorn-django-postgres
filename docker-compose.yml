@@ -1,15 +1,17 @@
 version: '3'
 services:
   nginx:
-    image: nginx:1.12.2-alpine
+    build: 
+      context: ./
+      dockerfile: ./nginx/Dockerfile
     ports:
       - "80:80"
+    environment:
+      BACKEND: django
     depends_on:
       - django
     volumes:
-      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/certs:/etc/pki/nginx/certs
-      - ./src/static:/var/www/static
   django:
     build: 
       context: ./
@@ -17,14 +19,22 @@ services:
     env_file: ./django/.django_env
     environment:
       DATABASE_HOST: postgres
+      NOSQL_DATABASE_HOST: xxxx
     depends_on:
       - postgres
-    command: gunicorn app.wsgi -b 0.0.0.0:8080
+      - mongo
   postgres:
-    build: ./postgres
+    build: 
+      context: ./
+      dockerfile: ./postgres/Dockerfile
     env_file: ./postgres/.postgres_env
     volumes:
       - pgdata:/var/lib/postgresql/data
     command: 'postgres -c config_file="/etc/postgresql.conf"'
+  mongo:
+    image: mongo
+    volumes:
+      - mongodata:/data/db
 volumes:
   pgdata:
+  mongodata:

@@ -2,8 +2,19 @@
 
 ## Docker
 ### イメージ作成
+#### Proxy
+```
+$ docker build -t tetsis/simple-django-reverse-proxy -f nginx/Dockerfile .
+```
+
+#### Django
 ```
 $ docker build -t tetsis/simple-django-app -f django/Dockerfile .
+```
+
+#### Database
+```
+$ docker build -t tetsis/simple-django-database -f postgres/Dockerfile .
 ```
 
 ## nginx

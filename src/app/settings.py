@@ -81,13 +81,21 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': os.environ.get('DATABASE_NAME', 'db'),
         'USER': os.environ.get('DATABASE_USER', 'db'),
-        'PASSWORD' : os.environ.get('DATABASE_PASSWORD', 'db'),
-        'HOST' : os.environ.get('DATABASE_HOST', '127.0.0.1'),
-        'PORT' : 5432,
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD', 'db'),
+        'HOST': os.environ.get('DATABASE_HOST', '127.0.0.1'),
+        'PORT': 5432,
         'TEST': {
             'NAME': 'test_db',
         }
     }
+}
+
+NOSQL_DATABASE = {
+    'HOST': os.environ.get('NOSQL_DATABASE_HOST', '127.0.0.1'),
+    'NAME': os.environ.get('NOSQL_DATABASE_NAME', 'db'),
+    'USER': os.environ.get('NOSQL_DATABASE_USER', 'db'),
+    'PASSWORD': os.environ.get('NOSQL_DATABASE_PASSWORD', 'db'),
+    'PORT': 27017
 }
 
 
@@ -128,8 +136,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
 STATIC_URL = '/static/'
-#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+#STATICFILES_DIRS = [
+#    os.path.join(BASE_DIR, "static"),
+#]

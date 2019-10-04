@@ -1,0 +1,43 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+        - name: django
+          image: tetsis/simple-django-app
+          ports:
+            - name: django
+              containerPort: 8080
+          env:
+            - name: DATABASE_PASSWORD
+              value: djangoyy
+            - name: DATABASE_USER
+              value: djangoyy
+            - name: DATABASE_NAME
+              value: djangoyy
+            - name: DATABASE_HOST
+              value: k8s-database.c9bjbfudcgmw.ap-northeast-1.rds.amazonaws.com
+            - name: NOSQL_DATABASE_NAME
+              value: aaaa
+            - name: NOSQL_DATABASE_USER
+              value: k8s-mongodb
+            - name: NOSQL_DATABASE_PASSWORD
+              value: k8s-mongodb
+            - name: NOSQL_DATABASE_HOST
+              value: k8s-mongodb-qig2j.mongodb.net/admin?retryWrites=true&w=majority
+        - name: proxy
+          image: tetsis/simple-django-reverse-proxy
+          ports:
+            - name: http-server
+              containerPort: 80

@@ -17,5 +17,4 @@ services:
       dockerfile: ./django/Dockerfile
     env_file: ./django/.django_env
     environment:
-      DATABASE_HOST: "192.168.33.105"
-    command: gunicorn app.wsgi -b 0.0.0.0:8080
+      DATABASE_HOST: "192.168.33.10"

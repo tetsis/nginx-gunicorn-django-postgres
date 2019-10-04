@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init_app
+spec:
+  template:
+    spec:
+      containers:
+        - name: init_app
+          image: tetsis/simple-django-app
+          env:
+            - name: DATABASE_PASSWORD
+              value: "djangoyy"
+            - name: DATABASE_USER
+              value: "djangoyy"
+            - name: DATABASE_NAME
+              value: "djangoyy"
+            - name: DATABASE_HOST
+              value: k8s-database.c9bjbfudcgmw.ap-northeast-1.rds.amazonaws.com
+          command: ["sh",  "init.sh"]
+      restartPolicy: Never

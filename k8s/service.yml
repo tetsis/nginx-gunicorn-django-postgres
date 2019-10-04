@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: app
+  labels:
+    app: app
+spec:
+  ports:
+    - port: 3000
+      targetPort: http-server
+  selector:
+    app: app
+  type: LoadBalancer

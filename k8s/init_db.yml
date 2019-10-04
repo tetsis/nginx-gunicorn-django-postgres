@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init_db
+spec:
+  template:
+    spec:
+      containers:
+        - name: init_db
+          image: tetsis/simple-django-database
+          env:
+            - name: PGPASSWORD
+              value: "k8s-database"
+            - name: DATABASE_USER
+              value: "postgres"
+            - name: DATABASE_HOST
+              value: k8s-database.c9bjbfudcgmw.ap-northeast-1.rds.amazonaws.com
+            - name: NEW_DATABASE_USER
+              value: "djangoyy"
+            - name: NEW_DATABASE_PASSWORD
+              value: "djangoyy"
+            - name: NEW_DATABASE_NAME
+              value: "djangoyy"
+          command: ["sh","init_db.sh"]
+      restartPolicy: Never

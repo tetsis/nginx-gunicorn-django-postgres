@@ -10,11 +10,21 @@
     <body>
         <h1 id="title">Django test page</h1>
         <button type="button" id="click">Click here</button>
-        {% for access_time_str in access_time_str_list %}
-        <p>{{ access_time_str }}</p>
+
+        <h2>PostgreSQL</h2>
+        {% for access_time_str_rdb in access_time_str_list_rdb %}
+        <p>{{ access_time_str_rdb }}</p>
         {% endfor %}
         <div>
-        <a id="save" href="{% url 'save' %}">Save</a>
+        <a id="save_rdb" href="{% url 'save_rdb' %}">Save to PostgreSQL</a>
+        </div>
+
+        <h2>MongoDB</h2>
+        {% for access_time_str_nosql in access_time_str_list_nosql %}
+        <p>{{ access_time_str_nosql }}</p>
+        {% endfor %}
+        <div>
+        <a id="save_nosql" href="{% url 'save_nosql' %}">Save to MongoDB</a>
         </div>
     </body>
 </html>

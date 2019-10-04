@@ -20,5 +20,6 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('save/', views.save, name='save'),
+    path('save_rdb/', views.save_rdb, name='save_rdb'),
+    path('save_nosql/', views.save_nosql, name='save_nosql'),
 ]
