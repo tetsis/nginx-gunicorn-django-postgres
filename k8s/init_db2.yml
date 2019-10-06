@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-db2
+spec:
+  template:
+    spec:
+      containers:
+        - name: init-db2
+          image: tetsis/simple-django-database
+          env:
+            - name: PGPASSWORD
+              value: postgres
+            - name: DATABASE_USER
+              value: postgres
+            - name: DATABASE_HOST
+              value: xxxx
+            - name: NEW_DATABASE_USER
+              value: django2
+            - name: NEW_DATABASE_PASSWORD
+              value: django2
+            - name: NEW_DATABASE_NAME
+              value: django2
+          command: ["sh","init_db.sh"]
+      restartPolicy: Never

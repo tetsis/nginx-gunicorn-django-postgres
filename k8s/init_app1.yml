@@ -1,0 +1,21 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: init-app1
+spec:
+  template:
+    spec:
+      containers:
+        - name: init-app1
+          image: tetsis/simple-django-app
+          env:
+            - name: DATABASE_PASSWORD
+              value: django1
+            - name: DATABASE_USER
+              value: django1
+            - name: DATABASE_NAME
+              value: django1
+            - name: DATABASE_HOST
+              value: xxxx
+          command: ["sh",  "init.sh"]
+      restartPolicy: Never
