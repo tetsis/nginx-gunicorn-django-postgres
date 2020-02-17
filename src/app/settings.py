@@ -90,15 +90,6 @@ DATABASES = {
     }
 }
 
-NOSQL_DATABASE = {
-    'HOST': os.environ.get('NOSQL_DATABASE_HOST', '127.0.0.1'),
-    'NAME': os.environ.get('NOSQL_DATABASE_NAME', 'db'),
-    'USER': os.environ.get('NOSQL_DATABASE_USER', 'db'),
-    'PASSWORD': os.environ.get('NOSQL_DATABASE_PASSWORD', 'db'),
-    'PORT': 27017
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
 

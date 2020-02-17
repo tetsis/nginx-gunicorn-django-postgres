@@ -28,14 +28,6 @@ spec:
               value: django2
             - name: DATABASE_HOST
               value: xxxx
-            - name: NOSQL_DATABASE_NAME
-              value: django2
-            - name: NOSQL_DATABASE_USER
-              value: k8s-mongodb
-            - name: NOSQL_DATABASE_PASSWORD
-              value: k8s-mongodb
-            - name: NOSQL_DATABASE_HOST
-              value: xxxx
         - name: proxy
           image: tetsis/simple-django-reverse-proxy
           ports:

@@ -19,12 +19,5 @@
         <a id="save_rdb" href="{% url 'save_rdb' %}">Save to PostgreSQL</a>
         </div>
 
-        <h2>MongoDB</h2>
-        {% for access_time_str_nosql in access_time_str_list_nosql %}
-        <p>{{ access_time_str_nosql }}</p>
-        {% endfor %}
-        <div>
-        <a id="save_nosql" href="{% url 'save_nosql' %}">Save to MongoDB</a>
-        </div>
     </body>
 </html>

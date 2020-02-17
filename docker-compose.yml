@@ -19,10 +19,8 @@ services:
     env_file: ./django/.django_env
     environment:
       DATABASE_HOST: postgres
-      NOSQL_DATABASE_HOST: xxxx
     depends_on:
       - postgres
-      - mongo
   postgres:
     build: 
       context: ./
@@ -31,10 +29,5 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
     command: 'postgres -c config_file="/etc/postgresql.conf"'
-  mongo:
-    image: mongo
-    volumes:
-      - mongodata:/data/db
 volumes:
   pgdata:
-  mongodata:
